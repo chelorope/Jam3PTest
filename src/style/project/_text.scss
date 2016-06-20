@@ -1,0 +1,15 @@
+#Text{
+  padding: 5%;
+  font-family: "Tahoma", Geneva, sans-serif;
+  font-size: 1.1em;
+  @media(min-width: $mobile-size) {
+    font-size: 1.7em;
+    padding: 2% 10%;
+  }
+  h1{
+    text-align: center;
+  }
+  p{
+    text-align: justify;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "development": {
+    "entry": "./src/index.js",
+    "vendor": "vendor.js",
+    "bundle": "bundle.js",
+    "static": "./static/",
+    "raw": "./raw-assets/",
+    "output": "./build/",
+    "style": "./src/style/main.scss",
+    "ASSET_PATH": "./assets/"
+  },
+  "production": {
+    "entry": "./src/index.js",
+    "vendor": "vendor.js",
+    "bundle": "bundle.js",
+    "static": "./static/",
+    "raw": "./raw-assets/",
+    "output": "./release/",
+    "style": "./src/style/main.scss",
+    "ASSET_PATH": "./assets/"
+  }
+}
+

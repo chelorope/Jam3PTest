@@ -1,0 +1,45 @@
+#Twitter{
+  background: #ffffff;
+  border: 6px solid #000000;
+  text-align: center;
+  height: auto;
+  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+  font-size: 0.8em;
+  >div{
+    padding: 0 4% 4%;
+    margin: auto;
+  }
+  .tw-logo{
+    margin: 2%;
+    height: auto;
+    width: 65vmin;
+  }
+  .user{
+    vertical-align: top;
+    display: inline-block;
+    padding: 2%;
+    margin: 3%;
+    max-width: 30vmin;
+    text-align: center;
+    @media(min-width: $mobile-size) {
+      width: 15vmin;
+    }
+    h3{
+      margin: 15% 0 0;
+      }
+    h4{
+      margin: 1% 0 0;
+    }
+    img{
+      box-shadow: 0 0 0 4px #ffffff, 0 0 0 8px #00ccff;
+      border-radius: 16%;
+      height: auto;
+      width: 20vmin;
+      display: block;
+      margin: auto;
+      @media(min-width: $mobile-size) {
+        width: 15vmin;
+      }
+    }
+  }
+}

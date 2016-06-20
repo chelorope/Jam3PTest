@@ -1,0 +1,43 @@
+#Share{
+  color: #000000;
+  background: #ffffff;
+  border: 6px solid #000000;
+  padding: 3%;
+  text-align: center;
+  min-height: 50vh;
+  div{
+    margin: auto;
+    }
+  .fb-logo{
+    margin-bottom: 1%;
+    height: auto;
+    width: 70vmin;
+    }
+
+  .share-img{
+    box-shadow: 0 0 0 1px #ffffff, 0 0 0 6px #3366cc;
+    margin: 30px auto;
+    display: block;
+    height: auto;
+    max-width: 270px;
+    max-width: 83vw;
+    @media(min-width: $mobile-size) {
+      box-shadow: 0 0 0 1px #ffffff, 0 0 0 6px #3366cc;
+      margin: 2% auto;
+      display: block;
+      width: auto;
+      max-height: 50vh;
+      }
+    }
+  button{
+    border-color: #29447e #29447e #1a356e;
+    color: #fff;
+    background-color: #5B74A8;
+    background-image: linear-gradient(#637bad, #5872a7);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
+    padding: 0.4em 0.9em 0.475em;
+    border: 1px solid #999;
+    font: bold 18px/normal 'lucida grande', tahoma, verdana, arial, sans-serif;
+    margin-bottom: 4%;
+    }
+}

@@ -1,0 +1,63 @@
+
+$mobile-size: 500px;
+
+@import "buttons";
+@import "image";
+@import "text";
+@import "twitter";
+@import "carousel";
+@import "share";
+@import "hamburger";
+
+
+
+body{
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  *{
+    box-sizing: border-box;
+  }
+}
+
+#page{
+  width: 100%;
+  min-width: 314px;
+  margin: 0 auto;
+  padding: 0px;
+  > div{
+      border-style: 5px solid;
+  }
+}
+
+.view{
+  clear: both;
+  position:relative;
+  > div{
+    max-height: 100vh;
+    //margin-bottom: 0.5vh
+    padding: 0px;
+    height: auto;
+    background: #000000;
+    &:nth-child(2n){;
+      color: #ffffff;
+    }
+    &:nth-child(2n+1){;
+      color: #000000;
+    }
+  }
+}
+
+.footer{
+  background: #000000;
+  color: #ffffff;
+  text-align: center;
+  font: 18px/normal Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+}
+
+
+
+
+
+
+//END

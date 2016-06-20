@@ -1,0 +1,39 @@
+#Carousel {
+  .slider-slide {
+    padding: 8vmin 0;
+    position: relative;
+    vertical-align: middle !important;
+  }
+  img {
+      height: auto;
+      width: 65vw;
+      margin: auto;
+      @media (min-width: $mobile-size){
+        width: 30vw;
+      }
+  }
+  .arrow {
+    height: 10vmin;
+    width: auto;
+    margin: 0 5vmin;
+    transition: transform 0.5s ease, -webkit-filter 0.4s ease-in;
+    &:hover {
+      -webkit-filter: brightness(50%);
+      transform: scale(1.2);
+    }
+  }
+  .slider-decorator-2{
+    text-align: center;
+    height: 8vw;
+    width: 90vw;
+    li {
+      width: 5vw;
+    }
+    @media(min-width: $mobile-size) {
+      height: 5vh;
+      li {
+        width: 10vw;
+      }
+    }
+  }
+}
