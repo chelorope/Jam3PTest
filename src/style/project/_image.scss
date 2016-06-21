@@ -3,18 +3,18 @@
   margin-bottom: 0.5vh;
   height: 400px;
   div{
-    background: url('/assets/images/logos/jam3Logo.gif') center/500px no-repeat;
+    background: url('http://twitserve-63723.onmodulus.net/static/media/logos/jam3Logo.gif') center/500px no-repeat;
     display: block;
     margin: 0 auto;
     height: 400px;
     width: auto;
     @media (min-width: 400px) {
-      background: url('/assets/images/logos/jam3Logo.gif') center no-repeat;
+      background: url('http://twitserve-63723.onmodulus.net/static/media/logos/jam3Logo.gif') center no-repeat;
     }
     &:hover{
-      background: url('/assets/images/logos/jam3Logo-repeat.gif') center/500px no-repeat;
+      background: url('http://twitserve-63723.onmodulus.net/static/media/logos/jam3Logo-repeat.gif') center/500px no-repeat;
       @media (min-width: 400px) {
-        background: url('/assets/images/logos/jam3Logo-repeat.gif') center no-repeat;
+        background: url('http://twitserve-63723.onmodulus.net/static/media/logos/jam3Logo-repeat.gif') center no-repeat;
       }
     }
   }

@@ -13,7 +13,7 @@ var Carrousel = React.createClass({
 
   _buildImages: function(list) {
     return list.map(function(val){
-      return <img src={"/assets/images/carousel/" + val + ".jpg"} key={val} />;
+      return <img src={"http://twitserve-63723.onmodulus.net/static/media/carousel/" + val + ".jpg"} key={val} />;
     })
   },
 
@@ -23,7 +23,7 @@ var Carrousel = React.createClass({
           render: function() {
             return (
               <div onClick={this.props.previousSlide}>
-                <img className="arrow" src='/assets/images/carousel/arrow-left.png' />
+                <img className="arrow" src='http://twitserve-63723.onmodulus.net/static/media/carousel/arrow-left.png' />
               </div>
             )
           }
@@ -35,7 +35,7 @@ var Carrousel = React.createClass({
             render: function() {
               return (
                 <div onClick={this.props.nextSlide}>
-                  <img className="arrow" src='/assets/images/carousel/arrow-right.png' />
+                  <img className="arrow" src='http://twitserve-63723.onmodulus.net/static/media/carousel/arrow-right.png' />
                 </div>
               )
             }
