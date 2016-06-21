@@ -2,6 +2,7 @@
   "development": {
     "entry": "./src/index.js",
     "vendor": "vendor.js",
+    "githubURL": "/",
     "bundle": "bundle.js",
     "static": "./static/",
     "raw": "./raw-assets/",
@@ -12,6 +13,7 @@
   "production": {
     "entry": "./src/index.js",
     "vendor": "vendor.js",
+    "githubURL": "/Jam3PTest/",
     "bundle": "bundle.js",
     "static": "./static/",
     "raw": "./raw-assets/",
@@ -20,4 +22,3 @@
     "ASSET_PATH": "./assets/"
   }
 }
-
