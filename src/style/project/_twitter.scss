@@ -1,45 +1,72 @@
-#Twitter{
+#Twitter {
   background: #ffffff;
   border: 6px solid #000000;
   text-align: center;
   height: auto;
   font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
   font-size: 0.8em;
-  >div{
+  >div {
     padding: 0 4% 4%;
     margin: auto;
   }
-  .tw-logo{
-    margin: 2%;
+  .tw-logo {
+    margin: 3%;
     height: auto;
     width: 65vmin;
   }
-  .user{
-    vertical-align: top;
+  .user {
     display: inline-block;
-    padding: 2%;
-    margin: 3%;
+    padding: 0;
+    margin: 4%;
     max-width: 30vmin;
     text-align: center;
+    position: relative;
+    perspective: 1000px;
     @media(min-width: $mobile-size) {
-      width: 15vmin;
+      max-width: 15vmin;
     }
-    h3{
-      margin: 15% 0 0;
-      }
-    h4{
-      margin: 1% 0 0;
+    &:hover .card, &.hover .card {
+      transform: translate( -100% ) rotateY(180deg);
     }
-    img{
+    .card {
+      transform-origin: right center;
+      transform-style: preserve-3d;
+      transition: transform 1s;
       box-shadow: 0 0 0 4px #ffffff, 0 0 0 8px #00ccff;
       border-radius: 16%;
-      height: auto;
+      height: 20vmin;
       width: 20vmin;
-      display: block;
-      margin: auto;
       @media(min-width: $mobile-size) {
+        height: 15vmin;
         width: 15vmin;
       }
+      figure {
+        margin: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+      }
+      .front {
+        img {
+          border-radius: 16%;
+          height: 20vmin;
+          width: 20vmin;
+          @media(min-width: $mobile-size) {
+            height: 15vmin;
+            width: 15vmin;
+          }
+        }
+      }
+      .back {
+        transform: rotateY( 180deg ); //PROBLEM WITH NAVBAR!!! fix: main.scss => #app{ >div{ perspective: none !important}}
+        h3 {
+          margin: 15% 0 0;
+          }
+        h4 {
+          margin: 1% 0 0;
+          }
+        }
     }
   }
 }

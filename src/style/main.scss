@@ -5,3 +5,9 @@
 @import "../sections/**/*.scss";
 @import "../components/**/*.scss";
 @import "project/views.scss";
+
+#app{
+  >div{
+    perspective: none !important;
+  }
+}

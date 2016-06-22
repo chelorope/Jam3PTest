@@ -1,4 +1,5 @@
 import React from 'react';
+import Tween from 'gsap';
 
 var Twitter = React.createClass({
   getInitialState: function() {
@@ -18,19 +19,24 @@ var Twitter = React.createClass({
     xhttp.send();
   },
   _renderTweets: function(tweets) {
-    var rendTweets = tweets.statuses.map(function(item){
+    var rendTweets = tweets.statuses.map((item) => {
       return (
         <div key={item.id} className="user" >
-          <img src={item.user.profile_image_url}></img>
-          <h3>{item.user.name}</h3>
-          <h4>@{item.user.screen_name}</h4>
+          <div className='card'>
+            <figure className="front">
+              <img src={item.user.profile_image_url} ></img>
+            </figure>
+            <figure className="back">
+              <h3>{item.user.name}</h3>
+              <h4>@{item.user.screen_name}</h4>
+            </figure>
+          </div>
         </div>
       )
     });
     this.setState({tweets : rendTweets});
   },
    render: function(){
-     console.log(window.location);
     return (
       <div>
         <img className="tw-logo" src="http://twitserve-63723.onmodulus.net/static/media/logos/twitterLogo.png" alt="twitter logo" />

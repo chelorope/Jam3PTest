@@ -31,6 +31,7 @@ body{
 }
 
 .view{
+  z-index: 0;
   clear: both;
   position:relative;
   > div{
@@ -39,21 +40,22 @@ body{
     padding: 0px;
     height: auto;
     background: #000000;
-    &:nth-child(2n){;
+    &:nth-child(2n){
       color: #ffffff;
     }
-    &:nth-child(2n+1){;
+    &:nth-child(2n+1){
       color: #000000;
     }
   }
 }
 
-.footer{
+.footer {
   background: #000000;
   color: #ffffff;
   text-align: center;
   font: 18px/normal Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
 }
+
 
 
 

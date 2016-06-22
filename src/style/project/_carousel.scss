@@ -30,9 +30,9 @@
       width: 5vw;
     }
     @media(min-width: $mobile-size) {
-      height: 5vh;
+      height: 5vmin;
       li {
-        width: 10vw;
+        width: 7vw;
       }
     }
   }
