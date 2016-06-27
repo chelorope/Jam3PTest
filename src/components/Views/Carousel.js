@@ -1,22 +1,21 @@
 import React from 'react';
-import {Carousel as Nuka} from 'nuka-carousel';
+import Nuka from 'nuka-carousel';
 
 var Carousel = React.createClass({
   _eachImage: function(){
-    // console.log("render")
+
     var amountImg = 12;
     var list = [];
     for (let i = 1; i <= amountImg; i++){
         list.push(i);
       };
-    return this._buildImages(list);
-  },
 
-  _buildImages: function(list) {
-    return list.map(function(val){
+    return list.map((val) => {
       return <img src={"http://twitserve-63723.onmodulus.net/static/media/carousel/" + val + ".jpg"} key={val} />;
     })
+
   },
+
 
   _getDecorators: function(){
     return [{
@@ -119,7 +118,6 @@ var Carousel = React.createClass({
          </Nuka>
        )
       }
-
   }
 });
 

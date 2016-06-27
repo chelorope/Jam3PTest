@@ -19,7 +19,7 @@ var Main = React.createClass({
 
   componentWillMount: function(){
     //this._viewArr = array of views. (Each view is a component)
-    this._viewArr = [Text, Twitter, Carousel,Share];
+    this._viewArr = [Text, Twitter, Carousel, Share];
 
     this._actual = "";
   },
@@ -37,9 +37,9 @@ var Main = React.createClass({
       this._changeURL(positions, docQuarter);
 
       //Setting when to animate the navbar
-      var headerTop = ReactDOM.findDOMNode(this._header).offsetTop;
+      var viewsTop = ReactDOM.findDOMNode(this._views).offsetTop;
       //console.log({middle: docQuarter, top: document.body.scrollTop, height: window.innerHeight});
-      if (docTop > headerTop){
+      if (docTop > viewsTop){
         if (!this.state.stickyButtons)
           this.setState({stickyButtons: true});
       }else {
@@ -109,8 +109,8 @@ var Main = React.createClass({
     var menu = this._mobileCheck() ? <HamburgerMenu views={this._viewArr} open={this.state.open} /> : <NavBar views={this._viewArr}  sticky={this.state.stickyButtons} />;
     return (
       <div >
-      {menu}
       <Header ref={(r) => this._header = r} />
+      {menu}
       <ViewList views={this._viewArr} mobile={this._mobileCheck()}  ref={(r) => this._views = r} />
       <Footer />
       </div>

@@ -29,9 +29,11 @@ var NavBar = React.createClass({
     var buttonsHeight = buttons.offsetHeight;
 
     if (sticky){
-      Tween.fromTo(buttons, 1.2, {y: -buttonsHeight, position: 'relative'}, {x: 0, y:0, ease: Expo.easeOut, position: 'fixed'});
+      Tween.fromTo(buttons, 1.2, {y: -buttonsHeight, position: 'relative'}, {x: 0, y:0, ease: Expo.easeOut, position: 'fixed',
+      onComplete: Tween.to(buttons, 1.1, {css:{className: '+=sticky'}})});
     }else{
-      Tween.fromTo(buttons, 0.7, {position: 'fixed', autoAlpha: 0}, {ease: Power1.easeIn, autoAlpha: 1, position: 'relative'});
+      Tween.fromTo(buttons, 0.7, {position: 'fixed', autoAlpha: 0}, {ease: Power1.easeIn, autoAlpha: 1, position: 'relative',
+      onComplete: Tween.to(buttons, 1.1, {css:{className: '-=sticky'}})});
     }
 
   },
