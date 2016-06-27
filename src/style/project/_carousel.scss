@@ -1,16 +1,16 @@
-#Carousel {
+.carousel {
   .slider-slide {
     padding: 8vmin 0;
     position: relative;
     vertical-align: middle !important;
-  }
   img {
       height: auto;
-      width: 65vw;
+      width: 65vw !important;
       margin: auto;
       @media (min-width: $mobile-size){
-        width: 30vw;
+        width: 30vw !important;
       }
+  }
   }
   .arrow {
     height: 10vmin;

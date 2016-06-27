@@ -1,8 +1,9 @@
 import React from 'react';
-import Carousel from 'nuka-carousel';
+import {Carousel as Nuka} from 'nuka-carousel';
 
-var Carrousel = React.createClass({
+var Carousel = React.createClass({
   _eachImage: function(){
+    // console.log("render")
     var amountImg = 12;
     var list = [];
     for (let i = 1; i <= amountImg; i++){
@@ -107,19 +108,19 @@ var Carrousel = React.createClass({
   render: function(){
       if (this.props.mobile){
         return (
-          <Carousel cellAlign="center" decorators={this._getDecorators()} wrapAround={true} >
+          <Nuka cellAlign="center" decorators={this._getDecorators()} wrapAround={true} >
             {this._eachImage()}
-          </Carousel>
+          </Nuka>
         )
      }else{
        return (
-         <Carousel cellAlign="center" decorators={this._getDecorators()} wrapAround={true} slidesToShow={3} slidesToScroll={"auto"}>
+         <Nuka cellAlign="center" decorators={this._getDecorators()} wrapAround={true} slidesToShow={3} slidesToScroll={"auto"}>
            {this._eachImage()}
-         </Carousel>
+         </Nuka>
        )
       }
 
   }
 });
 
-module.exports = Carrousel;
+module.exports = Carousel;

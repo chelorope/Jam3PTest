@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 import Button from './Button.js';
 var Menu = require('react-burger-menu').push;
 import Tween from 'gsap';
+import {DirectLink} from 'react-scroll';
 
-var ButtonList = React.createClass({
+var NavBar = React.createClass({
 
   componentDidMount: function() {
     if (!this.props.mobile){
       var node = {};
-      for (var i = this.props.views.length, delay = 1; i >= 2; i--){
+      for (var i = this.props.views.length - 1, delay = 1; i >= 0; i--){
         node = ReactDOM.findDOMNode(this.refs[`button${i}`]);
         Tween.from(node, 3, {delay: delay, x: -400, autoAlpha: 0, ease: Expo.easeOut})
         delay += 0.5;
@@ -35,32 +36,19 @@ var ButtonList = React.createClass({
 
   },
 
-  _eachButton: function(item){
-      var boundClick = this.props.handleClick.bind(null, item.name);
-      if (!this.props.mobile){
-        return <Button key={item.id}  name={item.name}
-        click={boundClick} ref={"button" + item.id}/>
-    }else {
+  _eachButton: function(item, index){
         return (
-          <div className="menu-item" onClick={boundClick} key={item.id}>
-            <a >{item.name}</a>
-          </div>
+          <DirectLink to={item.displayName.toLowerCase()} spy={true} smooth={true} duration={500} offset={-70} key={index} >
+            <Button name={item.displayName.toLowerCase()} ref={"button" + index}/>
+          </DirectLink>
         )
-      }
   },
   render: function(){
-    var buttons = this.props.views.slice(1).map(this._eachButton);
-    if (!this.props.mobile){
-      return <header id='buttons'><div className='navbar' ref={(c) => this._buttons = c}><div >{buttons}</div></div></header>
-    }else {
-      return (
-          <Menu right width={200} isOpen={this.props.open}>
-            {buttons}
-          </Menu>
+    var buttons = this.props.views.map(this._eachButton);
 
-      )
-    }
+    return <nav><div className='navbar' ref={(c) => this._buttons = c}><div >{buttons}</div></div></nav>
+
   }
 });
 
-module.exports = ButtonList;
+module.exports = NavBar;

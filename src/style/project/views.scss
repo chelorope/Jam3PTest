@@ -1,59 +1,33 @@
 
 $mobile-size: 500px;
 
-@import "buttons";
-@import "image";
+@import "navbar";
+@import "header";
 @import "text";
 @import "twitter";
 @import "carousel";
 @import "share";
 @import "hamburger";
+@import "footer";
 
-
-
-body{
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
-  *{
-    box-sizing: border-box;
-  }
-}
-
-#page{
-  width: 100%;
-  min-width: 314px;
-  margin: 0 auto;
-  padding: 0px;
-  > div{
-      border-style: 5px solid;
-  }
-}
 
 .view{
   z-index: 0;
   clear: both;
   position:relative;
-  > div{
+  section {
     max-height: 100vh;
     //margin-bottom: 0.5vh
-    padding: 0px;
     height: auto;
-    background: #000000;
-    &:nth-child(2n){
-      color: #ffffff;
-    }
     &:nth-child(2n+1){
+      color: #ffffff;
+      background: #000000;
+    }
+    &:nth-child(2n){
       color: #000000;
+      background: #ffffff;
     }
   }
-}
-
-.footer {
-  background: #000000;
-  color: #ffffff;
-  text-align: center;
-  font: 18px/normal Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
 }
 
 

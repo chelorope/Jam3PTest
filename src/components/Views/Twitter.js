@@ -19,9 +19,9 @@ var Twitter = React.createClass({
     xhttp.send();
   },
   _renderTweets: function(tweets) {
-    var rendTweets = tweets.statuses.map((item) => {
+    var rendTweets = tweets.statuses.map((item, index) => {
       return (
-        <div key={item.id} className="user" >
+        <div key={index} className="user" >
           <div className='card'>
             <figure className="front">
               <img src={item.user.profile_image_url} ></img>
