@@ -25,19 +25,18 @@ var Main = React.createClass({
   },
 
   componentDidMount: function(){
-    console.log(this._viewArr[0].displayName)
-    window.onscroll = () => {
 
+    window.onscroll = () => {
       //Position of each view (better out of onScroll)
       var positions = this._getViewPositions();
 
       var docTop = document.body.scrollTop;
-      var docQuarter = docTop + window.innerHeight / 2;
+      var docQuarter = docTop + window.innerHeight / 4;
       //Changing url while scrolling
       this._changeURL(positions, docQuarter);
 
       //Setting when to animate the navbar
-      var viewsTop = ReactDOM.findDOMNode(this._views).offsetTop;
+      var viewsTop = ReactDOM.findDOMNode(this._views).getBoundingClientRect().top + window.scrollY;
       //console.log({middle: docQuarter, top: document.body.scrollTop, height: window.innerHeight});
       if (docTop > viewsTop){
         if (!this.state.stickyButtons)
@@ -53,38 +52,34 @@ var Main = React.createClass({
 
   _getViewPositions: function(){
     return this._viewArr.map(item => {
-      var object = document.getElementById(item.displayName.toLowerCase());
-      return {top: object.offsetTop, bottom: object.offsetTop + object.offsetHeight}
+      var viewObject = document.getElementById(item.displayName.toLowerCase());
+      var viewViewport = viewObject.getBoundingClientRect();
+      var scrollY = window.scrollY
+      // console.log(item.displayName.toLowerCase());
+      // console.log(viewViewport.top + scrollY);
+      // console.log(viewViewport.bottom + scrollY);
+      return {top: viewViewport.top + scrollY, bottom: viewViewport.bottom + scrollY}
     });
   },
 
   _changeURL: function(positions, docQuarter){
 
-    var i = 0;
-    do{
-      console.log(" QUAR: " + docQuarter)
-      console.log(positions);
-      console.log(this._viewArr);
-      console.log("ACTUAL: " + this._actual + ` ARR[${i}]: ` + this._viewArr[i].displayName.toLowerCase() );
+    for (var i = 0; i < this._viewArr.length; i++){
       if (docQuarter > positions[i].top && docQuarter < positions[i].bottom){
-        console.log("entra1");
         if (this._actual != this._viewArr[i].displayName.toLowerCase()){
-          console.log("entra2");
-
           this._actual = this._viewArr[i].displayName.toLowerCase();
-          //console.log({name: this._viewArr[i].name, middle: docQuarter, divTop: positions[i].top, divBottom: positions[i].bottom});
           window.history.pushState(this._actual, this._actual, "/Jam3PTest/"+ this._actual);
         }
       }
-      i++;
-    }while(this._viewArr.length > i && !(docQuarter > positions[i].top && docQuarter < positions[i].bottom))
+    }//while(i < this._viewArr.length && !(docQuarter > positions[i].top && docQuarter < positions[i].bottom))
 
-    // if (docQuarter < positions[0].top){
-    //   if (this._actual != ""){
-    //     this._actual = "";
-    //     window.history.pushState("", "", "/Jam3PTest/");
-    //   }
-    // }
+    if (docQuarter < positions[0].top){
+      if (this._actual != ""){
+        this._actual = "";
+        window.history.pushState("", "", "/Jam3PTest/");
+      }
+    }
+    
   },
 
   getInitialState: function(){

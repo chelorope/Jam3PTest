@@ -23,17 +23,19 @@ var NavBar = React.createClass({
       this._handleStick(nextProps.sticky);
   },
 
+  getInitialState: function(){
+    return {classes: ''}
+  },
+
   _handleStick: function(sticky){
 
     var buttons = this._buttons;
     var buttonsHeight = buttons.offsetHeight;
 
     if (sticky){
-      Tween.fromTo(buttons, 1.2, {y: -buttonsHeight, position: 'relative'}, {x: 0, y:0, ease: Expo.easeOut, position: 'fixed',
-      onComplete: Tween.to(buttons, 1.1, {css:{className: '+=sticky'}})});
+      this.setState({classes: 'sticky'});
     }else{
-      Tween.fromTo(buttons, 0.7, {position: 'fixed', autoAlpha: 0}, {ease: Power1.easeIn, autoAlpha: 1, position: 'relative',
-      onComplete: Tween.to(buttons, 1.1, {css:{className: '-=sticky'}})});
+      this.setState({classes: ''});
     }
 
   },
@@ -48,7 +50,7 @@ var NavBar = React.createClass({
   render: function(){
     var buttons = this.props.views.map(this._eachButton);
 
-    return <nav><div className='navbar' ref={(c) => this._buttons = c}><div >{buttons}</div></div></nav>
+    return <nav><div className={'navbar ' + this.state.classes} ref={(c) => this._buttons = c}><div >{buttons}</div></div></nav>
 
   }
 });
