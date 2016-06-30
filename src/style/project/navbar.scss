@@ -31,7 +31,7 @@ nav{
   animation: barSlideUp 1.2s forwards;
   &.sticky{
     position: fixed;
-    animation: barSlideDown 1s forwards;
+    animation: barSlideDown .6s forwards;
     border-radius: 0px 0px 32px 8px;
   }
   >div{
