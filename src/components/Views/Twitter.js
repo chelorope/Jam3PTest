@@ -2,9 +2,11 @@ import React from 'react';
 import Tween from 'gsap';
 
 var Twitter = React.createClass({
+  
   getInitialState: function() {
     return{ tweets: "" };
   },
+
   componentWillMount: function(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
@@ -18,6 +20,7 @@ var Twitter = React.createClass({
     xhttp.setRequestHeader("Access-Control-Allow-Origin", window.location.href);
     xhttp.send();
   },
+
   _renderTweets: function(tweets) {
     var rendTweets = tweets.statuses.map((item, index) => {
       return (
@@ -36,6 +39,7 @@ var Twitter = React.createClass({
     });
     this.setState({tweets : rendTweets});
   },
+
    render: function(){
     return (
       <div>

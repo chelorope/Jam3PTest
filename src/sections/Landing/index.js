@@ -26,7 +26,7 @@ class Landing extends React.Component {
   }
   render() {
     var style = {width: this.props.width, height: this.props.height};
-    return <ReactF1
+    return (<ReactF1
       go={this.state.state}
       onComplete={this.state.onComplete}
       states={states(this.props)}
@@ -34,7 +34,7 @@ class Landing extends React.Component {
       style={style}
     >
       <div id="Landing" data-f1="container"><Main /></div>
-    </ReactF1>;
+    </ReactF1>);
   }
 };
 

@@ -56,19 +56,23 @@ class App extends React.Component {
     if (this.props.ready) {
       return React.cloneElement(this.props.children, { key: this.props.section, width: this.state.width, height: this.state.height});
     } else {
-      return <Preloader
+      return (
+        <Preloader
         onProgress={this.props.onProgress}
         onReady={this.props.onReady}
         assets={this.props.assets}
         width={this.state.width}
         height={this.state.height}
-      />
+        />
+      )
     }
   }
   render() {
-    return <TransitionGroup id="app" component="div" transitionMode="out-in">
-      {this.getContent()}
-    </TransitionGroup>;
+    return (
+      <TransitionGroup id="app" component="div" transitionMode="out-in">
+        {this.getContent()}
+      </TransitionGroup>
+    );
   }
 };
 

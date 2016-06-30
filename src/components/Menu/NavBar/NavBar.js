@@ -11,16 +11,18 @@ var NavBar = React.createClass({
     if (!this.props.mobile){
       var node = {};
       for (var i = this.props.views.length - 1, delay = 1; i >= 0; i--){
-        node = ReactDOM.findDOMNode(this.refs[`button${i}`]);
-        Tween.from(node, 3, {delay: delay, x: -400, autoAlpha: 0, ease: Expo.easeOut})
+        var nodeName = this.props.views[i].displayName.toLowerCase();
+        node = ReactDOM.findDOMNode(this.refs[`button-${nodeName}`]);
+        Tween.from(node, .5, {delay: delay, x: -400, autoAlpha: 0, ease: Expo.easeOut})
         delay += 0.5;
       }
     }
   },
 
   componentWillReceiveProps: function(nextProps){
-    if (!this.props.mobile)
+    if (nextProps.sticky != this.props.sticky){
       this._handleStick(nextProps.sticky);
+    }
   },
 
   getInitialState: function(){
@@ -28,30 +30,26 @@ var NavBar = React.createClass({
   },
 
   _handleStick: function(sticky){
-
-    var buttons = this._buttons;
-    var buttonsHeight = buttons.offsetHeight;
-
-    if (sticky){
-      this.setState({classes: 'sticky'});
-    }else{
-      this.setState({classes: ''});
-    }
-
+    this.setState( sticky ? {classes: 'sticky'} : {classes: ''} )
   },
 
   _eachButton: function(item, index){
+        var name = item.displayName.toLowerCase();
         return (
-          <DirectLink to={item.displayName.toLowerCase()} spy={true} smooth={true} duration={500} offset={-70} key={index} >
-            <Button name={item.displayName.toLowerCase()} ref={"button" + index}/>
+          <DirectLink to={name} spy={true} smooth={true} duration={500} offset={-70} key={index} >
+            <Button name={name} ref={"button-" + name} actual={this.props.actual} />
           </DirectLink>
         )
   },
+
   render: function(){
     var buttons = this.props.views.map(this._eachButton);
-
-    return <nav><div className={'navbar ' + this.state.classes} ref={(c) => this._buttons = c}><div >{buttons}</div></div></nav>
-
+    return (
+      <nav>
+        <div className={'navbar ' + this.state.classes} ref={(c) => this._buttons = c}>
+          <div >{buttons}</div>
+        </div>
+      </nav>)
   }
 });
 

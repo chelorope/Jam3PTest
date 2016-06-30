@@ -20,8 +20,6 @@ var Main = React.createClass({
   componentWillMount: function(){
     //this._viewArr = array of views. (Each view is a component)
     this._viewArr = [Text, Twitter, Carousel, Share];
-
-    this._actual = "";
   },
 
   componentDidMount: function(){
@@ -29,21 +27,19 @@ var Main = React.createClass({
     window.onscroll = () => {
       //Position of each view (better out of onScroll)
       var positions = this._getViewPositions();
-
       var docTop = document.body.scrollTop;
-      var docQuarter = docTop + window.innerHeight / 4;
+      var docQuarter = docTop + window.innerHeight / 2;
       //Changing url while scrolling
       this._changeURL(positions, docQuarter);
 
-      //Setting when to animate the navbar
+      //Checking if the navbar should stay in relative or fixed position
       var viewsTop = ReactDOM.findDOMNode(this._views).getBoundingClientRect().top + window.scrollY;
-      //console.log({middle: docQuarter, top: document.body.scrollTop, height: window.innerHeight});
       if (docTop > viewsTop){
-        if (!this.state.stickyButtons)
-          this.setState({stickyButtons: true});
+        if (!this.state.sticky)
+          this.setState({sticky: true});
       }else {
-        if (this.state.stickyButtons){
-          this.setState({stickyButtons: false});
+        if (this.state.sticky){
+          this.setState({sticky: false});
         }
       }
 
@@ -55,9 +51,6 @@ var Main = React.createClass({
       var viewObject = document.getElementById(item.displayName.toLowerCase());
       var viewViewport = viewObject.getBoundingClientRect();
       var scrollY = window.scrollY
-      // console.log(item.displayName.toLowerCase());
-      // console.log(viewViewport.top + scrollY);
-      // console.log(viewViewport.bottom + scrollY);
       return {top: viewViewport.top + scrollY, bottom: viewViewport.bottom + scrollY}
     });
   },
@@ -66,26 +59,27 @@ var Main = React.createClass({
 
     for (var i = 0; i < this._viewArr.length; i++){
       if (docQuarter > positions[i].top && docQuarter < positions[i].bottom){
-        if (this._actual != this._viewArr[i].displayName.toLowerCase()){
-          this._actual = this._viewArr[i].displayName.toLowerCase();
-          window.history.pushState(this._actual, this._actual, "/Jam3PTest/"+ this._actual);
+        if (this.state.actual != this._viewArr[i].displayName.toLowerCase()){
+          this.setState({actual: this._viewArr[i].displayName.toLowerCase()});
+          window.history.pushState(this.state.actual, this.state.actual, "/Jam3PTest/"+ this.state.actual);
         }
       }
     }//while(i < this._viewArr.length && !(docQuarter > positions[i].top && docQuarter < positions[i].bottom))
 
     if (docQuarter < positions[0].top){
-      if (this._actual != ""){
-        this._actual = "";
+      if (this.state.actual != ""){
+        this.setState({actual: ""});
         window.history.pushState("", "", "/Jam3PTest/");
       }
     }
-    
+
   },
 
   getInitialState: function(){
     return {
       open: false,
-      stickyButtons: false
+      sticky: false,
+      actual: "",
       };
   },
 
@@ -101,7 +95,10 @@ var Main = React.createClass({
   },
 
   render: function(){
-    var menu = this._mobileCheck() ? <HamburgerMenu views={this._viewArr} open={this.state.open} /> : <NavBar views={this._viewArr}  sticky={this.state.stickyButtons} />;
+    var menu = (this._mobileCheck() ?
+    <HamburgerMenu views={this._viewArr} open={this.state.open} /> :
+    <NavBar views={this._viewArr}  sticky={this.state.sticky} actual={this.state.actual} />);
+
     return (
       <div >
       <Header ref={(r) => this._header = r} />
