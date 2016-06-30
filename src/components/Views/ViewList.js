@@ -1,19 +1,28 @@
 import React from 'react';
 
-var ViewList = React.createClass({
-  _eachView: function(View, index){
+class ViewList extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this._eachView = this._eachView.bind(this);
+
+  }
+
+  _eachView(View, index) {
     return (
-      <section id={View.displayName.toLowerCase()} className={View.displayName.toLowerCase()} key={index} >
+      <section id={View.name.toLowerCase()} className={View.name.toLowerCase()} key={index} >
         <View mobile={this.props.mobile} />
       </section>
     )
-  },
-  render: function(){
+  }
+
+  render() {
     var views = this.props.views.map(this._eachView);
     return (
       <div className='view'>{views}</div>
     )
   }
-});
+}
 
-module.exports = ViewList;
+export default ViewList;

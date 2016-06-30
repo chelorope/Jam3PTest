@@ -1,13 +1,15 @@
 import React from 'react';
 import Tween from 'gsap';
 
-var Twitter = React.createClass({
-  
-  getInitialState: function() {
-    return{ tweets: "" };
-  },
+class Twitter extends React.Component {
 
-  componentWillMount: function(){
+  constructor(props) {
+    super(props);
+    this.state = { tweets: "" };
+    this._renderTweets = this._renderTweets.bind(this);
+  }
+
+  componentWillMount(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
       if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -19,9 +21,9 @@ var Twitter = React.createClass({
 
     xhttp.setRequestHeader("Access-Control-Allow-Origin", window.location.href);
     xhttp.send();
-  },
+  }
 
-  _renderTweets: function(tweets) {
+  _renderTweets(tweets) {
     var rendTweets = tweets.statuses.map((item, index) => {
       return (
         <div key={index} className="user" >
@@ -38,9 +40,9 @@ var Twitter = React.createClass({
       )
     });
     this.setState({tweets : rendTweets});
-  },
+  }
 
-   render: function(){
+   render(){
     return (
       <div>
         <img className="tw-logo" src="http://twitserve-63723.onmodulus.net/static/media/logos/twitterLogo.png" alt="twitter logo" />
@@ -50,6 +52,6 @@ var Twitter = React.createClass({
       </div>
     )
   }
-});
+}
 
-module.exports = Twitter;
+export default Twitter;

@@ -1,8 +1,9 @@
 import React from 'react';
 import Nuka from 'nuka-carousel';
 
-var Carousel = React.createClass({
-  _eachImage: function(){
+class Carousel extends React.Component {
+
+  _eachImage(){
 
     var amountImg = 12;
     var list = [];
@@ -14,10 +15,9 @@ var Carousel = React.createClass({
       return <img src={"http://twitserve-63723.onmodulus.net/static/media/carousel/" + val + ".jpg"} key={val} />;
     })
 
-  },
+  }
 
-
-  _getDecorators: function(){
+  _getDecorators(){
     return [{
         component: React.createClass({
           render: function() {
@@ -102,9 +102,9 @@ var Carousel = React.createClass({
       position: 'BottomCenter'
     }
     ];
-  },
+  }
 
-  render: function(){
+  render(){
       if (this.props.mobile){
         return (
           <Nuka cellAlign="center" decorators={this._getDecorators()} wrapAround={true} >
@@ -119,6 +119,6 @@ var Carousel = React.createClass({
        )
       }
   }
-});
+}
 
-module.exports = Carousel;
+export default Carousel;

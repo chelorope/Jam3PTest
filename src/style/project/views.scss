@@ -9,6 +9,7 @@ $mobile-size: 500px;
 @import "share";
 @import "hamburger";
 @import "footer";
+@import "button";
 
 
 .view{
@@ -21,11 +22,11 @@ $mobile-size: 500px;
     height: auto;
     &:nth-child(2n+1){
       color: #ffffff;
-      background: #000000;
+      // background: #000000;
     }
     &:nth-child(2n){
       color: #000000;
-      background: #ffffff;
+      // background: #ffffff;
     }
   }
 }

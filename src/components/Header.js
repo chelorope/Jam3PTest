@@ -1,13 +1,9 @@
 import React from 'react';
 
-var Header = React.createClass({
+const Header = () => (
 
-  render: function(){
+     <header className='jam3logo' ></header>
 
-    return <header className='jam3logo' ></header>
+  )
 
-  }
-
-});
-
-module.exports = Header;
+export default Header;
