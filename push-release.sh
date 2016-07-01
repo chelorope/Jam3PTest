@@ -3,4 +3,4 @@ cd "$(dirname "$0")"
 npm run release
 git commit -am "updating release"
 git subtree push --prefix release origin gh-pages
-pause
+user@host:~$ read -n1 -r -p "Press any key to continue..."
