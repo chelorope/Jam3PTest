@@ -6,7 +6,7 @@ class Button extends React.Component {
     return (
       <button
       type="button"
-      className={"button-" + this.props.actual + ' ' + newClass}
+      className={"button-main" + ' ' + "button-" + this.props.actual + ' ' + newClass}
       >
         {this.props.name}
       </button>

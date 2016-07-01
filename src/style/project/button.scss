@@ -1,15 +1,8 @@
 
 @mixin button-main( $dark-color, $medium-color, $light-color){
-  font:  16px /normal Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
-  width: 100px;
-  padding: 10px;
-  margin: 3px;
   background-color: $light-color;
   color: $dark-color;
-  border: 0;
   box-shadow: 1.2px 1.2px 2px 0 $dark-color;
-  transition: 0.6s background-color, 0.5s transform, 0.5s margin, 0.6s color;
-  transition-timing-function: cubic-bezier(.37,0,.67,.99);
   &.big{
     transform: scale(1.2) !important;
     margin: 0 12px;
@@ -17,39 +10,43 @@
     color: $light-color;
     box-shadow: 0 0 1px 0 $medium-color;
   }
-
-  &:nth-child(2n){
-    border-radius: 15px 5px;
-  }
-  &:nth-child(2n+1){
-    border-radius: 5px 15px;
-  }
   &:hover{
     background-color: $dark-color;
     color: $light-color;
     box-shadow: 0 0 1px 0 $medium-color;
   }
-  &:focus{
-    outline: none;
-  }
 }
 
 .button-wrapper{
   display: inline-block;
-  .button-{
-    @include button-main($dark-gray, $light-gray, #ffffff)
-  }
-  .button-text{
-    @include button-main($dark-gray, $light-gray, #ffffff)
-  }
-  .button-twitter{
-    @include button-main($dark-twitter, $medium-twitter, $light-twitter)
-  }
-  .button-carousel{
-    @include button-main($dark-carousel, $light-carousel, #ffffff)
-  }
-  .button-share{
-    @include button-main($dark-facebook, $light-facebook, #ffffff)
-  }
+  .button-main{
+    font:  16px /normal Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+    width: 100px;
+    padding: 10px;
+    margin: 3px;
+    border: 0;
+    transition: 0.6s background-color, 0.5s transform, 0.5s margin, 0.6s color;
+    transition-timing-function: cubic-bezier(.37,0,.67,.99);
+    border-radius: 5px 15px;
+    &:focus{
+      outline: none;
+    }
 
+    &.button-{
+      @include button-main($dark-gray, $light-gray, #ffffff)
+    }
+    &.button-text{
+      @include button-main($dark-gray, $light-gray, #ffffff)
+    }
+    &.button-twitter{
+      @include button-main($dark-twitter, $medium-twitter, $light-twitter)
+    }
+    &.button-carousel{
+      @include button-main($dark-carousel, $light-carousel, #ffffff)
+    }
+    &.button-share{
+      @include button-main($dark-facebook, $light-facebook, #ffffff)
+    }
+
+  }
 }
