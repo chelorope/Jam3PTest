@@ -43,13 +43,13 @@
     @include button-main($dark-gray, $light-gray, #ffffff)
   }
   .button-twitter{
-    @include button-main(#02a7cb, #00d9ff, #c7effa)
+    @include button-main($dark-twitter, $medium-twitter, $light-twitter)
   }
   .button-carousel{
-    @include button-main($dark-gray, $light-gray, #ffffff)
+    @include button-main($dark-carousel, $light-carousel, #ffffff)
   }
   .button-share{
-    @include button-main($dark-gray, $light-gray, #ffffff)
+    @include button-main($dark-facebook, $light-facebook, #ffffff)
   }
 
 }

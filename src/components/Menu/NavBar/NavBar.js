@@ -9,13 +9,13 @@ class NavBar extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {stickyClass: '', viewClass: 'text-bar'};
+    this.state = {stickyClass: '', viewClass: '-bar'};
     this._eachButton = this._eachButton.bind(this);
     this._handleStick = this._handleStick.bind(this);
   }
 
   componentDidMount() {
-      Tween.from(this._buttons, 3.5, {left: 400, ease: Bounce.easeOut});
+      Tween.from(this._buttons, 1.5, {left: -900, ease: Power1.easeIn});
       var node = {};
       for (var i = this.props.views.length - 1, delay = 1; i >= 0; i--){
         var nodeName = this.props.views[i].name.toLowerCase();

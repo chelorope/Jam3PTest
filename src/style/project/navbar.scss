@@ -1,9 +1,16 @@
 
 @import "animations";
 
-$dark-gray: #595858;
-$medium-gray: #a7a8ab;
-$light-gray: #cccdcf;
+@mixin backgroundNav($angle){
+  background: repeating-linear-gradient(
+    $angle,
+    $light-gray,
+    $light-gray 10px,
+    $medium-gray 10px,
+    $medium-gray 20px
+  );
+  transition: 1s background;
+}
 
 nav{
   width: 100%;
@@ -14,13 +21,7 @@ nav{
 
 .navbar{
   top: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    $light-gray,
-    $light-gray 10px,
-    $medium-gray 10px,
-    $medium-gray 20px
-  );
+
   position: relative;
   z-index: 1;
   width: 100%;
@@ -29,10 +30,26 @@ nav{
   border-radius: 5px;
   transition: 2s border-radius;
   animation: barSlideUp 1.2s forwards;
+  @include backgroundNav(45deg);
   &.sticky{
     position: fixed;
     animation: barSlideDown .6s forwards;
     border-radius: 0px 0px 32px 8px;
+  }
+  &.-bar{
+    @include backgroundNav(45deg);
+  }
+  &.text-bar{
+    @include backgroundNav(0deg);
+  }
+  &.twitter-bar{
+    @include backgroundNav(135deg);
+  }
+  &.carousel-bar{
+    @include backgroundNav(90deg);
+  }
+  &.share-bar{
+    @include backgroundNav(45deg);
   }
   >div{
     padding: 0px;

@@ -5,7 +5,8 @@
   padding: 3%;
   text-align: center;
   min-height: 50vh;
-  background-image: radial-gradient(ellipse at center, rgba(170,173,183,1) 0%,rgba(44,83,158,1) 81%);;
+  max-height: 100vh;
+  background-image: radial-gradient(ellipse at center, #abaeb8 0%,#2c539e 81%);
   box-shadow: inset 0 0 90px 20px #2e3d5c;
   div{
     margin: auto;
@@ -33,12 +34,12 @@
   button{
     border-radius: 2px;
     border-color: #29447e #29447e #1a356e;
-    color: #fff;
+    color: #ffffff;
     background-color: #5B74A8;
     background-image: linear-gradient(#637bad, #5872a7);
     box-shadow: inset 0 1px 0 #8a9cc2, 0 0 18px #2e3d5c;
     padding: 0.2em 0.9em 0.475em;
-    border: 1px solid #999;
+    border: 1px solid #999999;
     font: bold 18px/normal 'lucida grande', tahoma, verdana, arial, sans-serif;
     margin: 4% auto;
     transition: 1s box-shadow;
