@@ -9,10 +9,10 @@ class ViewList extends React.Component {
 
   }
 
-  _eachView(View, index) {
+  _eachView(view, index) {
     return (
-      <section id={View.name.toLowerCase()} className={View.name.toLowerCase()} key={index} >
-        <View mobile={this.props.mobile} />
+      <section id={view.name.toLowerCase()} className={view.name.toLowerCase()} key={index} >
+        <view.comp mobile={this.props.mobile} />
       </section>
     )
   }

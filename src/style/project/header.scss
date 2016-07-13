@@ -3,18 +3,23 @@
 header{
   margin-bottom: 0.5vh;
   height: 400px;
-  background: url('http://twitserve-63723.onmodulus.net/static/media/logos/jam3Logo.gif') center/500px no-repeat #0C0C0C;
+  background-image: radial-gradient(circle at center, #4F4F4F 0%,#0C0C0C 50%);
+  // background: url('http://twitserve-63723.onmodulus.net/static/media/logos/jam3Logo.gif') center/500px no-repeat #0C0C0C;
   display: block;
   margin: 0 auto;
   height: 400px;
   width: auto;
   @media (min-width: 400px) {
-    background: url('http://twitserve-63723.onmodulus.net/static/media/logos/jam3Logo.gif') center no-repeat #0C0C0C;
+    // background: url('http://twitserve-63723.onmodulus.net/static/media/logos/jam3Logo.gif') center no-repeat #0C0C0C;
   }
   &:hover{
-    background: url('http://twitserve-63723.onmodulus.net/static/media/logos/jam3Logo-repeat.gif') center/500px no-repeat #0C0C0C;
+    // background: url('http://twitserve-63723.onmodulus.net/static/media/logos/jam3Logo-repeat.gif') center/500px no-repeat #0C0C0C;
     @media (min-width: 400px) {
-      background: url('http://twitserve-63723.onmodulus.net/static/media/logos/jam3Logo-repeat.gif') center no-repeat #0C0C0C;
+      // background: url('http://twitserve-63723.onmodulus.net/static/media/logos/jam3Logo-repeat.gif') center no-repeat #0C0C0C;
     }
     }
+  .bm{
+    height: 100%;
+    width: auto;
+  }
 }

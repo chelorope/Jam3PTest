@@ -30,7 +30,12 @@ class Main extends React.Component {
 
   componentWillMount(){
     //this._viewArr = array of views. (Each view is a component)
-    this._viewArr = [Text, Twitter, Carousel, Share];
+    this._viewArr = [
+                    {name: 'text', comp: Text},
+                    {name: 'twitter', comp: Twitter},
+                    {name: 'carousel', comp: Carousel},
+                    {name: 'share', comp: Share}
+                  ];
   }
 
   componentDidMount(){

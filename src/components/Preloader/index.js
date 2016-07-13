@@ -39,7 +39,7 @@ class Preloader extends React.Component {
   }
   render() {
     var style = {width: this.props.width, height: this.props.height};
-    return <ReactF1
+    return (<ReactF1
       id="preloader"
       data-f1="container"
       style={style}
@@ -47,7 +47,7 @@ class Preloader extends React.Component {
       onComplete={this.state.onComplete}
       states={states(this.props)}
       transitions={transitions(this.props)}
-    />;
+    />);
   }
 };
 
