@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../raw-assets/json/Jam3Animation.json';
 import bodymovin from 'bodymovin';
 
 class Header extends React.Component {
