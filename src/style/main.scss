@@ -1,10 +1,12 @@
+@import "colors.scss";
+@import "animations";
 @import "normalize.scss";
 @import 'vars.scss';
 @import 'fonts.scss';
 @import "global.scss";
 @import "../sections/**/*.scss";
 @import "../components/**/*.scss";
-@import "project/views.scss";
+
 
 #app{
   >div{

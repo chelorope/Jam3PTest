@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Button from './Button.js';
+import Button from './button/Button.js';
 var Menu = require('react-burger-menu').push;
 import Tween from 'gsap';
 import {DirectLink} from 'react-scroll';

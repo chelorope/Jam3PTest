@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Scroll from 'react-scroll';
 import NavBar from './menu/navbar/NavBar.js';
-import HamburgerMenu from './menu/HamburgerMenu.js';
-import Header from './Header.js';
-import Text from './views/Text.js';
-import Twitter from './views/Twitter.js';
-import Carousel from './views/Carousel.js';
-import Share from './views/Share.js';
+import HamburgerMenu from './menu/hamburger/HamburgerMenu.js';
+import Header from './header/Header.js';
+import Text from './views/text/Text.js';
+import Twitter from './views/twitter/Twitter.js';
+import Carousel from './views/carousel/Carousel.js';
+import Share from './views/share/Share.js';
 import ViewList from './views/ViewList.js';
-import Footer from './Footer.js';
+import Footer from './footer/Footer.js';
 
 
 
