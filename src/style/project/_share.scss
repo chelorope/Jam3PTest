@@ -1,29 +1,34 @@
 .share{
+  position: relative;
   color: #000000;
   background: #ffffff;
   // border: 6px solid #000000;
-  padding: 3%;
   text-align: center;
   min-height: 50vh;
-  max-height: 100vh;
-  background-image: radial-gradient(ellipse at center, #abaeb8 0%,#2c539e 81%);
-  box-shadow: inset 0 0 90px 20px #2e3d5c;
-  div{
-    margin: auto;
-    }
-  .fb-logo{
-    margin-bottom: 0%;
-    height: auto;
-    width: 70vmin;
-    }
 
+  box-shadow: inset 0 0 5px 0px #2e3d5c;
+  .sh-1{
+    border-bottom: 6px solid #000000;
+    background-image: radial-gradient(ellipse at center, #abaeb8 0%,#2c539e 81%);
+    height: 45vmin;
+    .fb-logo{
+      margin-bottom: 0%;
+      height: auto;
+      width: 70vmin;
+      }
+  }
   .share-img{
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 25vmin;
     box-shadow: 0 0 0 1px #ffffff, 0 0 20px 6px #3c5077;
     margin: 0px auto;
     display: block;
     height: auto;
     max-width: 270px;
-    max-width: 83vw;
+    max-width: 75vw;
     @media(min-width: $mobile-size) {
       margin: 2% auto;
       display: block;
@@ -31,23 +36,30 @@
       max-height: 50vh;
       }
     }
-  button{
-    border-radius: 2px;
-    border-color: #29447e #29447e #1a356e;
-    color: #ffffff;
-    background-color: #5B74A8;
-    background-image: linear-gradient(#637bad, #5872a7);
-    box-shadow: inset 0 1px 0 #8a9cc2, 0 0 18px #2e3d5c;
-    padding: 0.2em 0.9em 0.475em;
-    border: 1px solid #999999;
-    font: bold 18px/normal 'lucida grande', tahoma, verdana, arial, sans-serif;
-    margin: 4% auto;
-    transition: 1s box-shadow;
-    @media(min-width: $mobile-size) {
-      padding: 0.4em 0.9em 0.475em;
-    }
-    &:hover{
-      box-shadow: 0 0 10px #ffffff;
+  .sh-2 {
+    position: relative;
+    min-height: 50vmin;
+    border-top: 6px solid #000000;
+    button{
+      position: relative;
+      bottom: -30vmin;
+      border-radius: 2px;
+      border-color: #29447e #29447e #1a356e;
+      color: #ffffff;
+      background-color: #5B74A8;
+      background-image: linear-gradient(#637bad, #5872a7);
+      box-shadow: inset 0 1px 0 #8a9cc2, 0 0 5px #2e3d5c;
+      padding: 0.2em 0.6em 0.375em;
+      border: 1px solid #999999;
+      font: bold 18px/normal 'lucida grande', tahoma, verdana, arial, sans-serif;
+      margin: 4% auto;
+      transition: 3s box-shadow;
+      @media(min-width: $mobile-size) {
+        padding: 0.4em 0.9em 0.475em;
       }
-    }
+      &:hover{
+        box-shadow: 0 0 10px #2e3d5c;
+        }
+      }
+  }
 }

@@ -19,7 +19,7 @@ class Share extends React.Component {
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
   }
-  
+
   _share() {
     FB.ui(
      {
@@ -31,10 +31,14 @@ class Share extends React.Component {
   render(){
     return (
       <div>
-      <img className="fb-logo" src="http://twitserve-63723.onmodulus.net/static/media/logos/Facebook_logo.svg" alt="facebook logo" />
-      <img className='share-img' src="http://images.huffingtonpost.com/2015-01-23-121121_BURKARD_101629.JPG"
-       alt="Kayak Lake Mountains" />
-      <button type="button" onClick={this._share}>Share</button>
+        <div className='sh-1'>
+          <img className="fb-logo" src="http://twitserve-63723.onmodulus.net/static/media/logos/Facebook_logo.svg" alt="facebook logo" />
+        </div>
+        <img className='share-img' src="http://images.huffingtonpost.com/2015-01-23-121121_BURKARD_101629.JPG"
+         alt="Kayak Lake Mountains" />
+        <div className='sh-2'>
+          <button type="button" onClick={this._share}>Share</button>
+        </div>
       </div>
     )
   }

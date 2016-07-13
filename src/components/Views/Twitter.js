@@ -17,7 +17,7 @@ class Twitter extends React.Component {
       }
     }.bind(this);
     // xhttp.open("GET", "http://" + window.location.hostname + ":8080/Jam3Test/jsonTwit?hash=hola", true);
-    xhttp.open("GET", "http://twitserve-63723.onmodulus.net/?hash=hola", true);
+    xhttp.open("GET", "http://twitserve-63723.onmodulus.net/?hash=jam3", true);
 
     xhttp.setRequestHeader("Access-Control-Allow-Origin", window.location.href);
     xhttp.send();
