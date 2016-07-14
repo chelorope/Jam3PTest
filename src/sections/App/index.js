@@ -53,19 +53,24 @@ class App extends React.Component {
     window.removeEventListener('resize',this.onResize);
   }
   getContent() {
-    if (this.props.ready) {
-      return React.cloneElement(this.props.children, { key: this.props.section, width: this.state.width, height: this.state.height});
-    } else {
-      return (
-        <Preloader
-        onProgress={this.props.onProgress}
-        onReady={this.props.onReady}
-        assets={this.props.assets}
-        width={this.state.width}
-        height={this.state.height}
-        />
-      )
-    }
+    //  if (this.props.ready) {
+      return React.cloneElement(this.props.children,
+        {
+          key: this.props.section,
+          width: this.state.width,
+          height: this.state.height
+        });
+    // } else {
+    //   return (
+    //     <Preloader
+    //     onProgress={this.props.onProgress}
+    //     onReady={this.props.onReady}
+    //     assets={this.props.assets}
+    //     width={this.state.width}
+    //     height={this.state.height}
+    //     />
+    //   )
+    // }
   }
   render() {
     return (

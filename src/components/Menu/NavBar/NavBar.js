@@ -26,38 +26,38 @@ class NavBar extends React.Component {
 
   }
 
-  componentWillReceiveProps(nextProps){
-    if (nextProps.sticky != this.props.sticky){
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.sticky != this.props.sticky) {
       this._handleStick(nextProps.sticky);
     }
-    if (nextProps.actual != this.props.actual){
+    if (nextProps.actual != this.props.actual) {
        this.setState({viewClass: ' ' + nextProps.actual + '-bar'});
     }
   }
 
-  _handleStick(sticky){
+  _handleStick(sticky) {
     this.setState( sticky ? {stickyClass: ' sticky '} : {stickyClass: ''} )
   }
 
-  _eachButton(item, index){
-        var name = item.name.toLowerCase();
+  _eachButton(item, index) {
         return (
-          <div className="button-wrapper" ref={"button-" + name} key={index} >
-            <DirectLink to={name} spy={true} smooth={true} duration={500} offset={-70}  >
-              <Button name={name}  actual={this.props.actual} />
+          <div className="button-wrapper" ref={"button-" + item.name} key={index} >
+            <DirectLink to={item.name} spy={true} smooth={true} duration={500} offset={-70}  >
+              <Button name={item.name}  actual={this.props.actual} />
             </DirectLink>
           </div>
         )
   }
 
-  render(){
+  render() {
     var buttons = this.props.views.map(this._eachButton);
     return (
       <nav>
-        <div className={'navbar ' + this.state.stickyClass + this.state.viewClass} ref={(c) => this._buttons = c}>
-          <div >
-            {buttons}
-          </div>
+        <div
+          className={'navbar ' + this.state.stickyClass + this.state.viewClass}
+          ref={(c) => this._buttons = c}
+        >
+          <div>{buttons}</div>
         </div>
       </nav>)
   }
