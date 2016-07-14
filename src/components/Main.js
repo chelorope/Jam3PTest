@@ -76,7 +76,7 @@ class Main extends React.Component {
       if (docQuarter > positions[i].top && docQuarter < positions[i].bottom){
         if (this.state.actual != this._viewArr[i].name){
           this.setState({actual: this._viewArr[i].name});
-          window.history.pushState(this.state.actual, this.state.actual, "/Jam3PTest/"+ this.state.actual);
+          window.history.pushState(this.state.actual, this.state.actual, "/Jam3PTest/" + this.state.actual);
         }
       }
     }//while(i < this._viewArr.length && !(docQuarter > positions[i].top && docQuarter < positions[i].bottom))
@@ -107,10 +107,10 @@ class Main extends React.Component {
 
     return (
       <div >
-      <Header ref={(r) => this._header = r} />
-      {menu}
-      <ViewList views={this._viewArr} mobile={this._mobileCheck()}  ref={(r) => this._views = r} />
-      <Footer />
+        <Header ref={(r) => this._header = r} />
+        {menu}
+        <ViewList views={this._viewArr} mobile={this._mobileCheck()}  ref={(r) => this._views = r} />
+        <Footer />
       </div>
     )
   }

@@ -38,7 +38,7 @@ class Preloader extends React.Component {
     });
   }
   render() {
-    var style = {width: this.props.width, height: this.props.height};
+    var style = {width: this.props.width, height: this.props.height, backgroundColor: '#000000'};
     return (
       <ReactF1
         id="preloader"
