@@ -4,6 +4,8 @@ import ReactF1 from 'react-f1';
 import states from './states';
 import transitions from './transitions';
 
+const imageAssetUrl = process.env.ASSET_PATH;
+
 class Preloader extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +40,7 @@ class Preloader extends React.Component {
     });
   }
   render() {
-    var style = {width: this.props.width, height: this.props.height, backgroundColor: '#000000'};
+    var style = {width: this.props.width, height: this.props.height};
     return (
       <ReactF1
         id="preloader"
@@ -48,7 +50,9 @@ class Preloader extends React.Component {
         onComplete={this.state.onComplete}
         states={states(this.props)}
         transitions={transitions(this.props)}
-      />
+      >
+        <img src= {imageAssetUrl + 'images/logos/LogoPreload.gif'} />
+      </ReactF1>
     );
   }
 };

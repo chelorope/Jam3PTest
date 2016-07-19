@@ -12,7 +12,7 @@ class ViewList extends React.Component {
   _eachView(view, index) {
     return (
       <section id={view.name} className={view.name} key={index} >
-        <view.comp mobile={this.props.mobile} />
+        <view.comp mobile={this.props.mobile} assets={this.props.assets} />
       </section>
     )
   }

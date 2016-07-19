@@ -5,3 +5,13 @@
  * ====================================================================
  */
 $fonts: '#{$ASSET_PATH}fonts/';
+
+@font-face {
+  font-family: "Comfortaa Regular";
+  src: url($fonts + "Comfortaa-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Karla Regular";
+  src: url($fonts + "karla/Karla-Regular.ttf");
+}

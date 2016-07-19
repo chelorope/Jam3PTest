@@ -41,7 +41,7 @@ class App extends React.Component {
   }
   onResize() {
     this.setState({
-      width: document.width,
+      width: (window.innerWidth - this.getScrollBarWidth()),
       height: window.innerHeight
     });
   }

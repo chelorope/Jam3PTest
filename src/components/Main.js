@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Scroll from 'react-scroll';
+import Mobile from 'mobile-detect';
 import NavBar from './menu/navbar/NavBar.js';
 import HamburgerMenu from './menu/hamburger/HamburgerMenu.js';
 import Header from './header/Header.js';
@@ -10,6 +11,8 @@ import Carousel from './views/carousel/Carousel.js';
 import Share from './views/share/Share.js';
 import ViewList from './views/ViewList.js';
 import Footer from './footer/Footer.js';
+
+const imageAssetUrl = process.env.ASSET_PATH;
 
 
 
@@ -58,8 +61,8 @@ class Main extends React.Component {
           this.setState({sticky: false});
         }
       }
-
     });
+
   }
 
   _getViewPositions(){
@@ -89,27 +92,25 @@ class Main extends React.Component {
   }
 
   _mobileCheck(){
-    return (
-         navigator.userAgent.match(/Android/i)
-      || navigator.userAgent.match(/webOS/i)
-      || navigator.userAgent.match(/iPhone/i)
-      || navigator.userAgent.match(/iPad/i)
-      || navigator.userAgent.match(/iPod/i)
-      || navigator.userAgent.match(/BlackBerry/i)
-      || navigator.userAgent.match(/Windows Phone/i)
-    );
+
+    var md = new Mobile(window.navigator.userAgent);
+    console.log('MOBILE');
+    return (md.mobile() != null)
+
   }
 
   render(){
-    var menu = (this._mobileCheck() ?
-    <HamburgerMenu views={this._viewArr} open={this.state.open} /> :
-    <NavBar views={this._viewArr}  sticky={this.state.sticky} actual={this.state.actual} />);
+    console.log('RENDER-MAIN');
+    var isMobile = this._mobileCheck();
+    var menu = (isMobile ?
+        <HamburgerMenu views={this._viewArr} open={this.state.open} /> :
+        <NavBar views={this._viewArr}  sticky={this.state.sticky} actual={this.state.actual} />);
 
     return (
       <div >
-        <Header ref={(r) => this._header = r} />
+        <Header ref={(r) => this._header = r} assets={imageAssetUrl} />
         {menu}
-        <ViewList views={this._viewArr} mobile={this._mobileCheck()}  ref={(r) => this._views = r} />
+        <ViewList views={this._viewArr} mobile={isMobile}  ref={(r) => this._views = r} assets={imageAssetUrl} />
         <Footer />
       </div>
     )

@@ -12,18 +12,19 @@ class Carousel extends React.Component {
       };
 
     return list.map((val) => {
-      return <img src={"http://twitserve-63723.onmodulus.net/static/media/carousel/" + val + ".jpg"} key={val} />;
+      return <img src={this.props.assets + "images/carousel/" + val + '.jpg'} key={val} />;
     })
 
   }
 
   _getDecorators(){
+    var assetsPath = this.props.assets;
     return [{
         component: React.createClass({
           render: function() {
             return (
               <div onClick={this.props.previousSlide}>
-                <img className="arrow" src='http://twitserve-63723.onmodulus.net/static/media/carousel/arrow-left.png' />
+                <img className="arrow" src={assetsPath + 'images/carousel/arrow-left.png'} />
               </div>
             )
           }
@@ -35,7 +36,7 @@ class Carousel extends React.Component {
             render: function() {
               return (
                 <div onClick={this.props.nextSlide}>
-                  <img className="arrow" src='http://twitserve-63723.onmodulus.net/static/media/carousel/arrow-right.png' />
+                  <img className="arrow" src={assetsPath + 'images/carousel/arrow-right.png'} />
                 </div>
               )
             }

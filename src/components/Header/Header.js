@@ -10,7 +10,7 @@ class Header extends React.Component {
         loop: 3,
         autoplay: true,
       //  animationData: logo,  the animation data
-        path: 'http://twitserve-63723.onmodulus.net/static/media/logos/Jam3Animation.json'
+        path: this.props.assets + 'json/Jam3Animation.json'//'http://twitserve-63723.onmodulus.net/static/media/logos/Jam3Animation.json'
       });
     }
 

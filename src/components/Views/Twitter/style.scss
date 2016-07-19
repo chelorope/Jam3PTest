@@ -1,13 +1,19 @@
 .twitter {
-  background: url('http://twitserve-63723.onmodulus.net/static/media/logos/Twitter_bird.svg') 5vmin 2vmin no-repeat;
+  background-image: url($images + 'logos/Twitter_bird.svg');
+  background-position: 2vmin 2vmin;
+  background-size: 15vmin auto;
+  background-repeat: no-repeat;
   // border: 6px solid #000000;
   text-align: center;
   height: auto;
   font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
-  font-size: 0.8em;
+  font-size: 0.5em;
   >div {
     padding: 0 4% 4%;
     margin: auto;
+  }
+  @media(min-width: $mobile-size) {
+    font-size: 0.7em;
   }
   .tw-logo {
     margin: 3%;

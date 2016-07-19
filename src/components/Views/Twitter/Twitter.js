@@ -1,19 +1,20 @@
 import React from 'react';
 import Tween from 'gsap';
 
+
 class Twitter extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = { tweets: "" };
-    this._renderTweets = this._renderTweets.bind(this);
+    this.renderTweets = this.renderTweets.bind(this);
   }
 
   componentWillMount(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
       if (xhttp.readyState == 4 && xhttp.status == 200) {
-        this._renderTweets(JSON.parse(xhttp.responseText));
+        this.renderTweets(JSON.parse(xhttp.responseText));
       }
     }.bind(this);
     // xhttp.open("GET", "http://" + window.location.hostname + ":8080/Jam3Test/jsonTwit?hash=hola", true);
@@ -23,7 +24,7 @@ class Twitter extends React.Component {
     xhttp.send();
   }
 
-  _renderTweets(tweets) {
+  renderTweets(tweets) {
     var rendTweets = tweets.statuses.map((item, index) => {
       return (
         <div key={index} className="user" >
@@ -45,7 +46,7 @@ class Twitter extends React.Component {
    render(){
     return (
       <div>
-        <img className="tw-logo" src="http://twitserve-63723.onmodulus.net/static/media/logos/twitterLogo.png" alt="twitter logo" />
+        <img className="tw-logo" src={this.props.assets + "images/logos/twitterLogo.png"} alt="twitter logo" />
         <div>
           {this.state.tweets}
         </div>

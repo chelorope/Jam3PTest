@@ -32,7 +32,7 @@ class Share extends React.Component {
     return (
       <div>
         <div className='sh-1'>
-          <img className="fb-logo" src="http://twitserve-63723.onmodulus.net/static/media/logos/Facebook_logo.svg" alt="facebook logo" />
+          <img className="fb-logo" src={this.props.assets + "images/logos/Facebook_logo.svg"} alt="facebook logo" />
         </div>
         <img className='share-img' src="http://images.huffingtonpost.com/2015-01-23-121121_BURKARD_101629.JPG"
          alt="Kayak Lake Mountains" />
