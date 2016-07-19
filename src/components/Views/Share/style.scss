@@ -29,7 +29,7 @@
     height: auto;
     max-width: 270px;
     max-width: 75vw;
-    @media(min-width: $mobile-size) {
+    @media(min-width: $small-size) {
       margin: 2% auto;
       display: block;
       width: auto;
@@ -54,7 +54,7 @@
       font: bold 18px/normal 'lucida grande', tahoma, verdana, arial, sans-serif;
       margin: 4% auto;
       transition: 3s box-shadow;
-      @media(min-width: $mobile-size) {
+      @media(min-width: $small-size) {
         padding: 0.4em 0.9em 0.475em;
       }
       &:hover{

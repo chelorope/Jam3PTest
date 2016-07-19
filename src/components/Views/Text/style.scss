@@ -6,7 +6,7 @@
   font-size: 1.1em;
   border-bottom: 10px #ffffff solid;
 
-  @media(min-width: $mobile-size) {
+  @media(min-width: $small-size) {
     font-size: 1.5em;
     padding: 5% 15%;
   }

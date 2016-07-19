@@ -7,7 +7,7 @@
     max-height: 100vh;
     //margin-bottom: 0.5vh
     height: auto;
-    @media(min-width: $mobile-size) {
+    @media(min-width: $small-size) {
       max-height: 100vh;
     }
     &:nth-child(2n+1){

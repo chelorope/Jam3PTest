@@ -12,7 +12,7 @@
     padding: 0 4% 4%;
     margin: auto;
   }
-  @media(min-width: $mobile-size) {
+  @media(min-width: $small-size) {
     font-size: 0.7em;
   }
   .tw-logo {
@@ -28,7 +28,7 @@
     text-align: center;
     position: relative;
     perspective: 1000px;
-    @media(min-width: $mobile-size) {
+    @media(min-width: $small-size) {
       max-width: 15vmin;
     }
     &:hover .card, &.hover .card {
@@ -42,7 +42,7 @@
       border-radius: 16%;
       height: 20vmin;
       width: 20vmin;
-      @media(min-width: $mobile-size) {
+      @media(min-width: $small-size) {
         height: 15vmin;
         width: 15vmin;
       }
@@ -58,7 +58,7 @@
           border-radius: 16%;
           height: 20vmin;
           width: 20vmin;
-          @media(min-width: $mobile-size) {
+          @media(min-width: $small-size) {
             height: 15vmin;
             width: 15vmin;
           }

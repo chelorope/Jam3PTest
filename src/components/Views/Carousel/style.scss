@@ -13,7 +13,7 @@
       height: auto;
       width: 65vw !important;
       margin: auto;
-      @media (min-width: $mobile-size){
+      @media (min-width: $small-size){
         width: 30vw !important;
       }
     }
@@ -37,7 +37,7 @@
     li {
       width: 5vw;
     }
-    @media(min-width: $mobile-size) {
+    @media(min-width: $small-size) {
       height: 5vmin;
       li {
         width: 7vw;

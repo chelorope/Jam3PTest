@@ -8,8 +8,9 @@ header{
   margin: 0 auto;
   height: 400px;
   width: auto;
-  @media (min-width: 400px) {
-    // background: url($images + 'logos/jam3Logo.gif') center no-repeat #0C0C0C;
+  border-bottom: 3vmin solid #ffffff;
+  @media (min-width: $small-size) {
+    border-bottom: 0;
   }
   &:hover{
     // background: url($images + 'logos/jam3Logo-repeat.gif') center/500px no-repeat #0C0C0C;
