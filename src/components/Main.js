@@ -57,7 +57,7 @@ class Main extends React.Component {
 
       //Checks if the navbar should stay in relative or fixed position
       var viewsTop = ReactDOM.findDOMNode(this._views).getBoundingClientRect().top + window.scrollY;
-      if (docLimits.top > viewsTop - 35){ console.log('tricky');
+      if (docLimits.top > viewsTop - 35){
         if (!this.state.sticky)
           this.setState({sticky: true});
       }else {
@@ -79,17 +79,7 @@ class Main extends React.Component {
   }
 
   _changeURL(viewsLimits, docLimits){
-
-    var aux = this.state.isVisibleView.slice();
     for (var i = 0; i < this._viewArr.length; i++){
-      if (docLimits.bottom >= viewsLimits[i].top && !aux[i]){
-        aux[i] = true;
-        this.setState({isVisibleView: aux});
-      }else if (docLimits.bottom < viewsLimits[i].top && aux[i]){
-        aux[i] = false;
-        this.setState({isVisibleView: aux});
-      }
-
       var docThird = docLimits.fraction(3);
       if (docThird > viewsLimits[i].top && docThird < viewsLimits[i].bottom){
         if (this.state.actual != this._viewArr[i].name){
@@ -97,7 +87,7 @@ class Main extends React.Component {
           window.history.pushState({actual: this.state.actual}, "", "/Jam3PTest/" + this.state.actual);
         }
       }
-    }while(i < this._viewArr.length && !(docThird > viewsLimits[i].top && docThird < viewsLimits[i].bottom))
+    }//while(i < this._viewArr.length && !(docThird > viewsLimits[i].top && docThird < viewsLimits[i].bottom))
     if (docThird < viewsLimits[0].top){
       if (this.state.actual != ""){
         this.setState({actual: ""});

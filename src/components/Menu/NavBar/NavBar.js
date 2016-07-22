@@ -10,29 +10,16 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {stickyClass: '', viewClass: '-bar'};
+    this._buttonsRef = [];
     this._eachButton = this._eachButton.bind(this);
     this._handleStick = this._handleStick.bind(this);
   }
 
   componentDidMount() {
 
-    var buttonsTween = [];
-    var node = {};
-    for (var i = this.props.views.length - 1, delay = 0; i >= 0; i--){
-      var nodeName = this.props.views[i].name;
-      node = this.refs[`button-${nodeName}`];
-      buttonsTween[i] = Tween.from(node, 2, {delay: delay, x: -400, autoAlpha: 0, ease: Expo.easeOut})
-      buttonsTween[i].pause();
-      delay += 0.3;
-    }
+    Tween.staggerFrom(this._buttonsRef, 1, {x: -400, autoAlpha: 0, ease: Expo.easeOut, delay: 1.8}, .1);
 
-    Tween.from(this._buttons, 1, {left: -900, ease: Power1.easeIn, delay: 1, onComplete: unpauseTweens.bind(this)});
-
-    function unpauseTweens(){
-      for (var i = this.props.views.length - 1; i >= 0; i--){
-        buttonsTween[i].resume();
-      }
-    }
+    Tween.from(this._navbar, 1, {left: -900, ease: Power1.easeIn, delay: 1});
 
 
   }
@@ -52,7 +39,7 @@ class NavBar extends React.Component {
 
   _eachButton(item, index) {
         return (
-          <div className="button-wrapper" ref={"button-" + item.name} key={index} >
+          <div className="button-wrapper" ref={(b) => this._buttonsRef.push(b)} key={index} >
             <DirectLink to={item.name} spy={true} smooth={true} duration={500} offset={-70}  >
               <Button name={item.name}  actual={this.props.actual} />
             </DirectLink>
@@ -66,7 +53,7 @@ class NavBar extends React.Component {
       <nav>
         <div
           className={'navbar ' + this.state.stickyClass + this.state.viewClass}
-          ref={(c) => this._buttons = c}
+          ref={(c) => this._navbar = c}
         >
           <div>{buttons}</div>
         </div>

@@ -11,7 +11,7 @@ class HamburgerMenu extends React.Component {
 
   _eachButton(item, index){
         return (
-          <DirectLink to={item.name.toLowerCase()} spy={true} smooth={true} duration={500} key={index} >
+          <DirectLink to={item.name} spy={true} smooth={true} duration={500} key={index} >
             <div className="menu-item" >
               {item.name}
             </div>
