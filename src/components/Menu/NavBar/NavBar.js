@@ -15,14 +15,25 @@ class NavBar extends React.Component {
   }
 
   componentDidMount() {
-      Tween.from(this._buttons, 1, {left: -900, ease: Power1.easeIn, delay: 1});
-      var node = {};
-      for (var i = this.props.views.length - 1, delay = 1.7; i >= 0; i--){
-        var nodeName = this.props.views[i].name;
-        node = this.refs[`button-${nodeName}`];
-        Tween.from(node, 2, {delay: delay, x: -400, autoAlpha: 0, ease: Expo.easeOut})
-        delay += 0.3;
+
+    var buttonsTween = [];
+    var node = {};
+    for (var i = this.props.views.length - 1, delay = 0; i >= 0; i--){
+      var nodeName = this.props.views[i].name;
+      node = this.refs[`button-${nodeName}`];
+      buttonsTween[i] = Tween.from(node, 2, {delay: delay, x: -400, autoAlpha: 0, ease: Expo.easeOut})
+      buttonsTween[i].pause();
+      delay += 0.3;
+    }
+
+    Tween.from(this._buttons, 1, {left: -900, ease: Power1.easeIn, delay: 1, onComplete: unpauseTweens.bind(this)});
+
+    function unpauseTweens(){
+      for (var i = this.props.views.length - 1; i >= 0; i--){
+        buttonsTween[i].resume();
       }
+    }
+
 
   }
 

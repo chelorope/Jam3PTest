@@ -4,16 +4,21 @@ import bodymovin from 'bodymovin';
 class Header extends React.Component {
 
     componentDidMount() {
-      this._anim = bodymovin.loadAnimation({
+      var logoAnimation = bodymovin.loadAnimation({
         container: this._bm, // the dom element
         renderer: 'svg',
         loop: 3,
         autoplay: true,
         path: this.props.assets + 'json/Jam3Animation.json'//'http://twitserve-63723.onmodulus.net/static/media/logos/Jam3Animation.json'
       });
+      this._anim = logoAnimation;
 
-      this._bm.addEventListener('mouseover', () => {this._anim.play()});
-      this._bm.addEventListener('mouseout', () => {this._anim.stop()})
+      this._bm.addEventListener('mouseover', () => {console.log('entra');logoAnimation.play()});
+      this._bm.addEventListener('mouseout', () => {
+          logoAnimation.addEventListener('loopComplete', () => {
+              logoAnimation.stop();
+          });
+      });
     }
 
     render() {
