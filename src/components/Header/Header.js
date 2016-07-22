@@ -13,7 +13,7 @@ class Header extends React.Component {
       });
       this._anim = logoAnimation;
 
-      this._bm.addEventListener('mouseover', () => {console.log('entra');logoAnimation.play()});
+      this._bm.addEventListener('mouseover', () => {logoAnimation.play()});
       this._bm.addEventListener('mouseout', () => {
           logoAnimation.addEventListener('loopComplete', () => {
               logoAnimation.stop();
