@@ -15,10 +15,10 @@ class NavBar extends React.Component {
   }
 
   componentDidMount() {
-      Tween.from(this._buttons, 1.5, {left: -900, ease: Power1.easeIn});
+      Tween.from(this._buttons, 1, {left: -900, ease: Power1.easeIn, delay: 1});
       var node = {};
-      for (var i = this.props.views.length - 1, delay = 1; i >= 0; i--){
-        var nodeName = this.props.views[i].name.toLowerCase();
+      for (var i = this.props.views.length - 1, delay = 1.7; i >= 0; i--){
+        var nodeName = this.props.views[i].name;
         node = this.refs[`button-${nodeName}`];
         Tween.from(node, 2, {delay: delay, x: -400, autoAlpha: 0, ease: Expo.easeOut})
         delay += 0.3;

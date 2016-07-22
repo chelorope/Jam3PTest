@@ -25,6 +25,7 @@ class Main extends React.Component {
       open: false,
       sticky: false,
       actual: "",
+      isVisibleView: []
       };
     this._getViewPositions = this._getViewPositions.bind(this);
     this._changeURL = this._changeURL.bind(this);
@@ -45,15 +46,18 @@ class Main extends React.Component {
 
     window.addEventListener('scroll', (e) => {
       //Position of each view (better out of onScroll)
-      var positions = this._getViewPositions();
-      var docTop = document.body.scrollTop;
-      var docQuarter = docTop + window.innerHeight / 3;
+      var viewsLimits = this._getViewPositions();
+      var docLimits = {
+              top: document.body.scrollTop,
+              bottom: document.body.scrollTop + window.innerHeight,
+              fraction: (f) => (document.body.scrollTop + window.innerHeight / f)
+      };
       //Changes the url while scrolling
-      this._changeURL(positions, docQuarter);
+      this._changeURL(viewsLimits, docLimits);
 
       //Checks if the navbar should stay in relative or fixed position
       var viewsTop = ReactDOM.findDOMNode(this._views).getBoundingClientRect().top + window.scrollY;
-      if (docTop > viewsTop){
+      if (docLimits.top > viewsTop - 35){ console.log('tricky');
         if (!this.state.sticky)
           this.setState({sticky: true});
       }else {
@@ -69,21 +73,32 @@ class Main extends React.Component {
     return this._viewArr.map(item => {
       var viewObject = document.getElementById(item.name);
       var viewViewport = viewObject.getBoundingClientRect();
-      var scrollY = window.scrollY
+      var scrollY = window.scrollY;
       return {top: viewViewport.top + scrollY, bottom: viewViewport.bottom + scrollY}
     });
   }
 
-  _changeURL(positions, docQuarter){
+  _changeURL(viewsLimits, docLimits){
+
+    var aux = this.state.isVisibleView.slice();
     for (var i = 0; i < this._viewArr.length; i++){
-      if (docQuarter > positions[i].top && docQuarter < positions[i].bottom){
+      if (docLimits.bottom >= viewsLimits[i].top && !aux[i]){
+        aux[i] = true;
+        this.setState({isVisibleView: aux});
+      }else if (docLimits.bottom < viewsLimits[i].top && aux[i]){
+        aux[i] = false;
+        this.setState({isVisibleView: aux});
+      }
+
+      var docThird = docLimits.fraction(3);
+      if (docThird > viewsLimits[i].top && docThird < viewsLimits[i].bottom){
         if (this.state.actual != this._viewArr[i].name){
           this.setState({actual: this._viewArr[i].name});
           window.history.pushState({actual: this.state.actual}, "", "/Jam3PTest/" + this.state.actual);
         }
       }
-    }while(i < this._viewArr.length && !(docQuarter > positions[i].top && docQuarter < positions[i].bottom))
-    if (docQuarter < positions[0].top){
+    }while(i < this._viewArr.length && !(docThird > viewsLimits[i].top && docThird < viewsLimits[i].bottom))
+    if (docThird < viewsLimits[0].top){
       if (this.state.actual != ""){
         this.setState({actual: ""});
         window.history.pushState({actual: ""}, "", "/Jam3PTest/");
